@@ -1,0 +1,22 @@
+package com.opf.license_service.model;
+
+import lombok.*;
+import org.springframework.stereotype.Component;
+
+@Component
+@Setter
+@Getter
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class License {
+
+    private int id;
+    private String licenseId;
+    private String description;
+    private String organizationId;
+    private String productName;
+    private String licenseType;
+
+}
