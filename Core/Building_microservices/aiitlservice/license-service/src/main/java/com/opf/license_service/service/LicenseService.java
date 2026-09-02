@@ -40,11 +40,12 @@ public class LicenseService {
 
         String responseMessage = null;
 
+        // We will check for a special case:
+        // + Check to see if license is not null.
         if(license != null) {
             license.setOrganizationId(organizationId);
-            responseMessage = String.format(
-                    messages.getMessage("license.create.message", null, locale),
-                    license.toString());
+            var message = messages.getMessage("license.create.message", null, locale);
+            responseMessage = String.format(message, ": ", license.toString());
         }
 
         return responseMessage;
@@ -59,9 +60,8 @@ public class LicenseService {
 
         if (license != null) {
             license.setOrganizationId(organizationId);
-            responseMessage = String.format(
-                    messages.getMessage("license.update.message", null, null),
-                    license.toString());
+            var message = messages.getMessage("license.update.message", null, null);
+            responseMessage = String.format(message, ": ", license.toString());
         }
 
         return responseMessage;
@@ -69,6 +69,7 @@ public class LicenseService {
 
     public String deleteLicense(String licenseId, String organizationId){
         String responseMessage = null;
+        var message =
         responseMessage = String.format("Deleting license with id %s for the organization %s",licenseId, organizationId);
         return responseMessage;
     }
